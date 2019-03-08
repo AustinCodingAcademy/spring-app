@@ -76,6 +76,7 @@ public class ClientController {
             // from this page
 			model.addAttribute("pets", clientService.getPets(client.getId()) );
 		}
+	    logger.info("Client Controller: getClient method");
 		return "clients/editClient";
 	}
 
@@ -99,7 +100,7 @@ public class ClientController {
 
 	     // we add in a "saved" attribute so we can print a nice message indicating a save was successfull
 		 redirectAttributes.addAttribute("saved", true);
-
+		 logger.info("Client Controller: saveClient method");
 
 	     return "redirect:/clients/"+client.getId();
 		  

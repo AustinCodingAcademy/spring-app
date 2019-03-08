@@ -59,6 +59,7 @@ public class PetController {
         // we add the pets to the model
         // Note we are not adding the PetCommand instances, but Pet instances
 		model.addAttribute("pets", pets);
+		logger.info("Pet Controller: listPets method");
         return "pets/listPets";
     }
 
@@ -118,6 +119,7 @@ public class PetController {
 
 		// we add the command pet command instance to the mode (which has the client instance as well as the pet info)
 		model.addAttribute("command", petCommand);
+		logger.info("Pet Controller: getPet method");
 		return "pets/editPet";
 	}
 
@@ -141,6 +143,7 @@ public class PetController {
         if(fromClientPage) {
             redirectAttributes.addAttribute("clientId", pet.getClientId());
         }
+        logger.info("Pet Controller: savePet method");
         return "redirect:/pets/"+pet.getId();
 
     }
