@@ -15,16 +15,21 @@
 					<table class="fullWidth pure-table pure-table-horizontal">
 						<thead>
 							<tr>
-								<th>Id</th>
+								<th>Pet Id</th>
+								<th>Client Name </th>
 								<th>Name</th>
 								<th>Gender</th>
+								<th>Client ID </th>
 							</tr>
 						</thead>
 						<tbody>	
 							<tr data-th-each="pet : ${pets}">
 								<td> <a data-th-href="@{/pets/{id}(id=${pet.id})}" data-th-text="${pet.id}">...</a></td>
+<!-- 								<td data-th-text="${clientService.getClient(pet.clientId).name}">...</td> -->
+								<td data-th-text="${clientService.getClient(pet.clientId)}">...</td>
 								<td data-th-text="${pet.name}">...</td>
 								<td data-th-text="${pet.gender}">...</td>
+								<td data-th-text="${pet.clientId}">...</td>
 							</tr>
 						</tbody>
 					</table>

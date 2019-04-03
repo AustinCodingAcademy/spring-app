@@ -28,13 +28,18 @@
 
 						<div class="pure-control-group">
 				            <label>Client</label>
-				            <span data-th-text="${command.client.name}"> client </span>
+				            <a data-th-href="@{/clients/{id}(id=${command.client.id})}" data-th-text="${command.client.name}">...</a> 
+				        
 				        </div>
 				        
 						<div class="pure-control-group">
 				            <label>Id</label>
 				            <span data-th-if="${command.id == null}"> New </span>
   				            <span data-th-if="${command.id != null}" data-th-text="*{id}"> New </span>				            
+				        </div>
+				        <div class="pure-control-group">
+				            <label>Address</label>
+  				             <span data-th-text="${command.client.address}"> client </span>				            
 				        </div>
 		
 				        <div class="pure-control-group">
@@ -51,6 +56,10 @@
 							</select>
 				        </div>
 						
+						<div class="pure-control-group">
+				            <label>Age</label>
+							<input id="name" name="name" type="text" data-th-field="*{age}">
+				        </div>
 						
 				        <div class="pure-control-group">
 				            <label for="altered">Altered</label>

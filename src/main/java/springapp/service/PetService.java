@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import springapp.command.PetCommand;
 import springapp.dao.PetDao;
 import springapp.domain.Client;
@@ -15,6 +16,8 @@ import springapp.domain.Pet;
 @Service
 public class PetService {
 
+	private Logger logger = LoggerFactory.getLogger(PetService.class);
+	
 	@Autowired 
 	PetDao petDao;
 	
@@ -32,7 +35,9 @@ public class PetService {
 	}
 	
 	public Pet savePet(PetCommand command) {
-		Pet newPet = new Pet(command.getId(), command.getName(), command.getGender(), command.isAltered(), command.getClientId());
+		 logger.info("Pet Service: Entering savePet method");
+		Pet newPet = new Pet(command.getId(), command.getName(), command.getGender(), command.isAltered(), command.getClientId(), command.getAge());
+		logger.info("Pet Service: Exiting save Pet method");
 		return petDao.save(newPet);
 	}
 }

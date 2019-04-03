@@ -56,12 +56,18 @@ public class PetController {
 	    // get the list of pets from the service
         List<Pet> pets = petService.getPets();
 
+
         // we add the pets to the model
         // Note we are not adding the PetCommand instances, but Pet instances
 		model.addAttribute("pets", pets);
 		logger.info("Pet Controller: listPets method");
         return "pets/listPets";
     }
+	
+	public String getClientName(int clientId) {
+		Client tempClient = clientService.getClient(clientId);
+		return tempClient.getName();
+	}
 
     /**
      * Get pet information and draw an edit page for single pet.

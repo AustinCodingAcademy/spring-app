@@ -19,11 +19,11 @@
 					<form class="pure-form pure-form-aligned" id="theForm" action="#" data-th-action="@{/clients}" data-th-object="${command}" method="post">
 						<input type="hidden" data-th-field="*{id}"/>
 					    <div data-th-if="${saved}" class="message-box-info">
-							Saved
+							Client Info Saved
 					    </div>
 
 						<div class="pure-control-group">
-				            <label>Id</label>
+				            <label>Client Id</label>
 				            <span data-th-if="${command.id == null}"> New </span>
   				            <span name="id" data-th-if="${command.id != null}" data-th-text="*{id}"> New </span>
 				        </div>
@@ -44,6 +44,12 @@
 				            <textarea id="address" name="address" type="text" data-th-field="*{address}">
 				            </textarea>
 				        </div>
+				        
+				        <div class="pure-control-group">
+				            <label for="email">Email</label>
+				            <input id="email" name="email" type="text" data-th-field="*{email}">
+				        </div>
+				        
 				        <div class="pure-control-group" data-th-if="${command.id != null}">
 							<div data-th-if="${deleted}" class="message-box-info">
 								Deleted successfully

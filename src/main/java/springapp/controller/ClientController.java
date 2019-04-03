@@ -29,7 +29,7 @@ public class ClientController {
 
     private Logger logger = LoggerFactory.getLogger(ClientController.class);
 
-    // Inject in a ClientService claass
+    // Inject in a ClientService class
 	@Autowired
 	ClientService clientService;
 
@@ -83,7 +83,7 @@ public class ClientController {
     /**
      * Saves the updates to a client based on the command that was sent from the client side
      * @param command the command corresponding with how the client object should be updated/created
-     * @param redirectAttributes holds the attribtues that we may want to pass to the get page after a save
+     * @param redirectAttributes holds the attributes that we may want to pass to the get page after a save
      * @return the edit client view template
      */
 	 @PreAuthorize("hasAuthority('SAVE_CLIENT')")
